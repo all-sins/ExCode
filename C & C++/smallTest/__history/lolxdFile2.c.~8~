@@ -1,0 +1,38 @@
+#pragma hdrstop
+#pragma argsused
+
+#include <stdio.h>
+#include <tchar.h>
+#include <windows.h>
+
+
+float a, b;
+int i;
+
+
+float calculateRectangle(int a, int b)
+{
+	return ((a*2)+(b*2));
+}
+
+
+void main()
+{
+	printf("Ievadiet ludzu taisnstura malas");
+
+	printf("\n1. mala ... ");
+	scanf("%f", &a);
+
+	printf("\n2. mala ... ");
+	scanf("%f", &b);
+
+	for (i = 0; i > 100; i++) {
+		printf("Calculating %d\%", i);
+		Beep(100 + (i * 2),80);
+		sleep(80);
+	}
+
+
+	getch();
+}
+

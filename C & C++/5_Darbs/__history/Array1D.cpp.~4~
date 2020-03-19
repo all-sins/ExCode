@@ -1,0 +1,73 @@
+#pragma hdrstop
+#pragma argsused
+
+#include <stdio.h>
+#include <conio.h>
+#include <iostream.h>
+
+/*
+Izveidot masivu. Masiva maksimalais izmers ir 100 elementi.
+Nedrikst izmantot otru masivu! Izmainam janotiek taja pasa masiva!
+Lietotajam jabut iespejams izmainit cik elementus velas ievadit masiva!
+Kad programma pabeigta, prasa vai atkartot.
+
+Arturs Alsins P1-3
+21. Variants
+Masivs no N elementiem satur latinu alfabeta burtus.
+Noteikt cik reizes masiva ir sastopams katrs burts.
+*/
+
+void main()
+{
+	// Mainigie
+	int i, n = 0;
+	char ievade[100];
+	char REPEAT;
+
+	do {
+		do {
+
+			// Teksta krasa - sarkana
+			system("COLOR C");
+			clrscr();
+
+			// Nosacijumu pieteiksana
+			printf("Ludzu nemiet vera, ka TIKAI vertibas,");
+			printf(" \nkas pieder skaitlu intervalam no 1 lidz 100 ieskaitot tiks pienemtas.");
+			printf("\nNepareizas ievades gadijuma programma atkartos vaicajumu.\n");
+
+			// Elementu skaita ievade
+			printf("\nLudzu ievadiet cik burtus velaties ievadit...\n\n");
+			scanf("%u", &n);
+			clrscr();
+		} while ((n <= 0) && (n > 100));
+
+		// Programa skaita no 0-ta elementa.
+		n -= 1;
+
+		for (i = 0; i <= n; i++) {
+			char c;
+			// Lietotajs skaita no 1 lidz n.
+			// Izvade pieskaita viens, lai saglabatu logiku
+			printf("Ievadiet %u. elementu!\n",i+1);
+			cin >> c;
+			ievade[i] = c;
+			clrscr();
+		}
+
+		// Masiva elementu vertibu izdruka
+		for (i = 0; i <= n; i++) {
+			printf("\n");
+			// X420X CONTINUE HERE X420X X420X CONTINUE HERE X420X X420X CONTINUE HERE X420X
+			// X420X CONTINUE HERE X420X X420X CONTINUE HERE X420X X420X CONTINUE HERE X420X
+			// X420X CONTINUE HERE X420X X420X CONTINUE HERE X420X X420X CONTINUE HERE X420X
+		}
+
+		// Vaicajums lietotajam vai velas atkartot programmu
+		printf("Vai velaties atkartot programmu?\n");
+		printf("\nJa vai Ja\t-\tJa, atkartot programmu.");
+		printf("\nJebkas cits\t-\tNe, aizvert programmu.\n\n");
+		cin >> REPEAT;
+	}
+	while ((REPEAT == 'y') || (REPEAT == 'Y'));
+}

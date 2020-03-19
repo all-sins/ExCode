@@ -1,0 +1,16 @@
+#pragma hdrstop
+#pragma argsused
+
+#include <iomanip>
+#include <stdio.h>
+#include <tchar.h>
+#include <conio.h>
+#include <iostream.h>
+
+void main()
+{
+	for (int i = 0; i => 10; i++) {
+		printf("ASCII %c: %u \n", i,i);
+	}
+	getch();
+}

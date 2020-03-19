@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2017-06-21 12:14:11.000.940,=C:\Users\Tsukiakari\Documents\RAD Studio\Projects\File1.cpp</Transaction>
+    <Transaction>2017-06-21 12:14:11.000.873,=C:\Users\Tsukiakari\Documents\RAD Studio\Projects\Project2PCH1.h</Transaction>
+    <Transaction>2017-06-21 12:16:42.000.623,C:\Users\Tsukiakari\Documents\RAD Studio\Projects\File1.cpp=A:\Notes\C &amp; C++\8. Darbs\Vector.cpp</Transaction>
+    <Transaction>2017-06-21 12:17:06.000.989,C:\Users\Tsukiakari\Documents\RAD Studio\Projects\Project2PCH1.h=A:\Notes\C &amp; C++\8. Darbs\VectorPCH1.h</Transaction>
+    <Transaction>2017-06-21 12:17:11.000.055,C:\Users\Tsukiakari\Documents\RAD Studio\Projects\Project2.cbproj=A:\Notes\C &amp; C++\8. Darbs\VectorProject2.cbproj</Transaction>
+  </Transactions>
+</BorlandProject>

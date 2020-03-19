@@ -1,0 +1,12 @@
+#pragma hdrstop
+#pragma argsused
+
+#include <stdio.h>
+#include <tchar.h>
+#include <iostream.h>
+
+void main()
+{
+	getch();
+}
+
