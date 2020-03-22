@@ -1,0 +1,35 @@
+body {
+    margin: 0;
+    padding: 5% 5%;
+    background-color: black;
+}
+
+.title {
+    background-color: black;
+    border: limegreen;
+    border-width: 5%;
+    border-style: solid;
+    font-size: xx-large;
+    text-align: center;
+    margin-left: 25%;
+    margin-right: 25%;
+}
+
+.title h1 {
+    color: lime;
+}
+
+.content {
+    margin-top: 3%;
+    background-color: black;
+    text-align: center;
+}
+
+.content a {
+    color: cyan;
+    font-size: xx-large;
+}
+
+.content p {
+    color: lime;
+}
