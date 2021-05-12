@@ -1,0 +1,42 @@
+* {
+    padding: 0;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    background-color: gray;
+}
+
+.mainContent {
+    margin: 5% 20%;
+    padding: 5%;
+    border-style: solid;
+    background-color: aliceblue;
+}
+
+.theParagraph {
+    font-size: larger;
+}
+
+.imageContainer {
+    padding: 3% 15%;
+}
+
+.theImage {
+    text-align: center;
+    padding: 5% 0%;
+    border-style: solid;
+}
+
+.theImage img {
+    max-width: 40%;
+}
+
+.theList {
+    text-align: left;
+}
+
+.theList li {
+    padding-top: 1%;
+}

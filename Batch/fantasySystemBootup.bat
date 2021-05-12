@@ -1,4 +1,5 @@
 @echo off
+REM THIS IS JUST A DECORATIVE ANIMATION FOR A VIDEO I MADE.
 REM 0 	= 	Black 	  	8 	= 	Gray
 REM 1 	= 	Blue 	  	9 	= 	Light Blue
 REM 2 	= 	Green 	  	A 	= 	Light Green
