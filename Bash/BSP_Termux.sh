@@ -1,4 +1,4 @@
-#!/data/data/com.termux/files/usr/bin/sh
+#!/bin/sh
 URL="https://scaleway.testdebit.info/1M/1M.txt"  # URL of a file to download
 TIMEOUT=300  # Timeout value in seconds
 START_TIME=$(date +%s)
