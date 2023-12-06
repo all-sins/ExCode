@@ -24,8 +24,9 @@ function printColoredSquares {
 
 # Build dashes.
 $strBuild = ""
+$unicodeBox = [char]0x25AE
 for ($i = 0; $i -lt $pcInfo.CsUserName.length; $i++) {
-  $strBuild += "-"
+  $strBuild += $unicodeBox
 }
 
 # Get ComputerInfo object.
