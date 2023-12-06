@@ -41,7 +41,7 @@ $Win32_VideoController = Get-WmiObject -Class Win32_VideoController
 
 # Fetch GPU memory value from Registry as other options are limited to a 32bit uint value which is inaccurate for values about 4GB.
 $gpuMemorySizeInBytes = (Get-ItemProperty -Path "HKLM:\SYSTEM\ControlSet001\Control\Class\{4d36e968-e325-11ce-bfc1-08002be10318}\0*" -Name HardwareInformation.qwMemorySize -ErrorAction SilentlyContinue)."HardwareInformation.qwMemorySize"
-$gpuMemorySizeInGB = $gpuMemorySizeInBytes / 1024 / 1024 / 1024
+$gpuMemorySizeInGB = [int64]$gpuMemorySizeInBytes / 1024 / 1024 / 1024
 
 # Format uptime properly, since directly accessing a member of GetComputer-Info returns the value surrounded by " ".
 $uptimeHrs = $pcInfo.OsUptime.Hours.ToString().Replace(" ", "")
