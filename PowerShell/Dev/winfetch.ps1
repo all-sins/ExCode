@@ -17,14 +17,14 @@
 
 function printColoredSquares {
   $colors = [Enum]::GetValues([System.ConsoleColor]);
+  $unicodeBox = [char]0x25AE
   foreach ($color in $colors) {
-    Write-Host -NoNewline -ForegroundColor $color ▮
+    Write-Host -NoNewline -ForegroundColor $color $unicodeBox
   }
 }
 
 # Build dashes.
 $strBuild = ""
-$unicodeBox = [char]0x25AE
 for ($i = 0; $i -lt $pcInfo.CsUserName.length; $i++) {
   $strBuild += "-"
 }
