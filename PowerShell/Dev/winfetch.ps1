@@ -41,9 +41,12 @@ $Win32_VideoController = Get-WmiObject -Class Win32_VideoController
 
 # Fetch GPU memory value from Registry as other options are limited to a 32bit uint value which is inaccurate for values about 4GB.
 # TODO:
+#
 # also, do you always pick first GPU and not the GPU with the most VRAM?
 # OG.Tsu 🎃 — Today at 3:49 PM
 # Are you referring to the list of Processors it returns?
+#
+# Win 11 fails to retrive GPU VRAM like this. Fix!
 
 # Get the registry values
 $registryValues = Get-ItemProperty -Path "HKLM:\SYSTEM\ControlSet001\Control\Class\{4d36e968-e325-11ce-bfc1-08002be10318}\0*" -Name HardwareInformation.qwMemorySize -ErrorAction SilentlyContinue
