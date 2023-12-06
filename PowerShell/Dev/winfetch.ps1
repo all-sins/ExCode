@@ -40,14 +40,19 @@ $ramAsGB = $ramAsMB / 1024
 $Win32_VideoController = Get-WmiObject -Class Win32_VideoController
 
 # Fetch GPU memory value from Registry as other options are limited to a 32bit uint value which is inaccurate for values about 4GB.
+# TODO:
+# also, do you always pick first GPU and not the GPU with the most VRAM?
+# OG.Tsu 🎃 — Today at 3:49 PM
+# Are you referring to the list of Processors it returns?
 $gpuMemorySizeInBytes = (Get-ItemProperty -Path "HKLM:\SYSTEM\ControlSet001\Control\Class\{4d36e968-e325-11ce-bfc1-08002be10318}\0*" -Name HardwareInformation.qwMemorySize -ErrorAction SilentlyContinue)."HardwareInformation.qwMemorySize"
-$gpuMemorySizeInGB = [int64]$gpuMemorySizeInBytes / 1024 / 1024 / 1024
+$gpuMemorySizeInGB = $gpuMemorySizeInBytes.ToInt64() / 1024 / 1024 / 1024
 
 # Format uptime properly, since directly accessing a member of GetComputer-Info returns the value surrounded by " ".
+$uptimeDay = $pcInfo.OsUptime.Days.ToString().Replace(" ", "")
 $uptimeHrs = $pcInfo.OsUptime.Hours.ToString().Replace(" ", "")
 $uptimeMin = $pcInfo.OsUptime.Minutes.ToString().Replace(" ", "")
 $uptimeSec = $pcInfo.OsUptime.Seconds.ToString().Replace(" ", "")
-$uptimeFormated = $uptimeHrs+"h "+$uptimeMin+"m "+$uptimeSec+"s"
+$uptimeFormated = $uptimeDay+"d "+$uptimeHrs+"h "+$uptimeMin+"m "+$uptimeSec+"s"
 
 # Control variable for spacing between ASCII and info text.
 $spacing = "    "
