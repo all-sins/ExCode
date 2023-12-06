@@ -1,6 +1,4 @@
-﻿clear
-
-function f {
+﻿function f {
   param(
     [Parameter(Mandatory)]
     [String] $text,
