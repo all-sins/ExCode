@@ -26,7 +26,7 @@ function printColoredSquares {
 $strBuild = ""
 $unicodeBox = [char]0x25AE
 for ($i = 0; $i -lt $pcInfo.CsUserName.length; $i++) {
-  $strBuild += $unicodeBox
+  $strBuild += "-"
 }
 
 # Get ComputerInfo object.
@@ -44,8 +44,20 @@ $Win32_VideoController = Get-WmiObject -Class Win32_VideoController
 # also, do you always pick first GPU and not the GPU with the most VRAM?
 # OG.Tsu 🎃 — Today at 3:49 PM
 # Are you referring to the list of Processors it returns?
-$gpuMemorySizeInBytes = (Get-ItemProperty -Path "HKLM:\SYSTEM\ControlSet001\Control\Class\{4d36e968-e325-11ce-bfc1-08002be10318}\0*" -Name HardwareInformation.qwMemorySize -ErrorAction SilentlyContinue)."HardwareInformation.qwMemorySize"
-$gpuMemorySizeInGB = $gpuMemorySizeInBytes.ToInt64() / 1024 / 1024 / 1024
+
+# Get the registry values
+$registryValues = Get-ItemProperty -Path "HKLM:\SYSTEM\ControlSet001\Control\Class\{4d36e968-e325-11ce-bfc1-08002be10318}\0*" -Name HardwareInformation.qwMemorySize -ErrorAction SilentlyContinue
+
+# Check if the registry values were retrieved successfully and if they are not an array
+if ($registryValues -ne $null -and $registryValues.PSObject.TypeNames[0] -ne 'System.Object[]') {
+    # Extract the MemorySize property
+    $gpuMemorySizeInBytes = $registryValues."HardwareInformation.qwMemorySize"
+    
+    # Convert bytes to gigabytes
+    $gpuMemorySizeInGB = $gpuMemorySizeInBytes / 1GB
+} else {
+    Write-Host "Unable to retrieve GPU Memory Size."
+}
 
 # Format uptime properly, since directly accessing a member of GetComputer-Info returns the value surrounded by " ".
 $uptimeDay = $pcInfo.OsUptime.Days.ToString().Replace(" ", "")
