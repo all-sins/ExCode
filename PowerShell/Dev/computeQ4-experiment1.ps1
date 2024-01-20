@@ -24,13 +24,13 @@ for ([System.Int64]$i = $start; $i -lt $end; $i++) {
 	$tmp = $tmp + [int]::Parse($char)
 	$sum = $sum + $tmp
     }
-    # $f++
-    #if ($i % 10 -ne 0) {
-        # Write-Host -NoNewline "$tmp "
-    #} else {
-        # Write-Host "$tmp [$i] {$sum}"
-	# $f = 0
-    #}
+    $f++
+    if ($i % 10 -ne 0) {
+        Write-Host -NoNewline "$tmp "
+    } else {
+        Write-Host "$tmp [$i] {$sum}"
+	$f = 0
+    }
     if ($i % 1000000 -eq 0) {
         $debugInfo = "[$i] {$sum}"
         Out-File -FilePath .\q4.log -Append -InputObject $debugInfo
