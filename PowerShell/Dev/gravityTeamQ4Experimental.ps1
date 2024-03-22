@@ -52,22 +52,6 @@ if (Test-Path -Path C:\Users\Tsu\compute.log) {
     New-Item -ItemType File -Name compute.log -Path C:\Users\Tsu\
 }
 
-# Define compute thread.
-$computeJob = {
-    param($start, $end, $index)
-    Out-File -FilePath C:\Users\Tsu\tmp.file -Append -InputObject "$start $end $index"
-    for ($i = $start; $i -lt $end; $i++) {
-        Out-File -FilePath C:\Users\Tsu\tmp.file -Append -InputObject "Computing $i"
-        $asStr = [String]$i
-        [System.Int64]$tmp = 0
-        foreach ($char in $asStr.ToCharArray()) {
-            $tmp = $tmp + [int]::Parse($char)
-        }
-        Out-File -FilePath C:\Users\Tsu\tmp.file -Append -InputObject "Storing $i => $tmp"
-        AddValueToIndex -value $tmp -index $index
-    }
-}
-
 # Start jobs in parallel
 $msg = ""
 for ($j = 0; $j -lt $threads; $j++) {
@@ -78,7 +62,19 @@ for ($j = 0; $j -lt $threads; $j++) {
     }
     # Start-Job -ScriptBlock $computeJob -ArgumentList $start, $end, $j
     $index = $j
-    Start-Job -ScriptBlock $computeJob -ArgumentList $start, $end, $index
+    Start-Job {
+        Out-File -FilePath C:\Users\Tsu\tmp.file -Append -InputObject "$start $end $index"
+        for ($i = $start; $i -lt $end; $i++) {
+            Out-File -FilePath C:\Users\Tsu\tmp.file -Append -InputObject "Computing $i"
+            $asStr = [String]$i
+            [System.Int64]$tmp = 0
+            foreach ($char in $asStr.ToCharArray()) {
+                $tmp = $tmp + [int]::Parse($char)
+            }
+            Out-File -FilePath C:\Users\Tsu\tmp.file -Append -InputObject "Storing $i => $tmp"
+            AddValueToIndex -value $tmp -index $index
+        }
+    }
     $msg += "[Thread-$j] $start $end`n"
 }
 Write-Host -ForegroundColor Cyan $msg
@@ -86,6 +82,9 @@ Write-Host -ForegroundColor Cyan $msg
 # Wait for all jobs to finish and print analytic data
 Write-Host -ForegroundColor Magenta "[ANALYTICS] Starting..."
 $analyticsItteration = 0
+
+# Why does this not work?
+# Just jumps past one itteration and then exits. :(
 while (Get-Job -State "Running") {
     $currentSUM = 0
     $tmp = @(0) * 8
@@ -100,19 +99,19 @@ while (Get-Job -State "Running") {
     Start-Sleep -Seconds $analyticsThrottle
     $analyticsItteration++
 }
-
 Write-Host -ForegroundColor Green "COMPUTE-DONE!"
-Write-Host -ForegroundColor "Writing results to file..."
+
+Write-Host "Writing results to file..."
 if (-not (Test-Path -Path ~\gravityTeamQ4.result)) {
   New-Item -ItemType File -Path ~\ -Name gravityTeamQ4.result
 }
-Clear-Content -Path ~\gravityTeamQ4.result
+#Clear-Content -Path ~\gravityTeamQ4.result
 # Retrieve results and save them.
-Set-Content -Path ~\gravityTeamQ4.result -Value $(Receive-Job -Keep)
+Out-File -FilePath ~\gravityTeamQ4.result -Append -InputObject $(Get-Job | Receive-Job -Keep)
 Write-Host -ForegroundColor Green "WRITE-DONE!"
 
 # Clean-up threads.
-Write-Host -ForegroundColor "Removing Jobs..."
+Write-Host "Removing Jobs..."
 foreach ($job in Get-Job) {
   Stop-Job $job
   Remove-Job $job
