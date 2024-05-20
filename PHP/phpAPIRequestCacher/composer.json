@@ -1,0 +1,16 @@
+{
+  "name": "all-sins/printful_task",
+  "description": "description",
+  "authors": [
+    {
+      "name": "all-sins",
+      "email": "arturs.alsins@tutanota.com"
+    }
+  ],
+  "require": {
+    "guzzlehttp/guzzle": "^7.8"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^11.1"
+  }
+}

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="PhpTestFrameworkVersionCache">
+    <tools_cache>
+      <tool tool_name="PHPUnit">
+        <cache>
+          <versions>
+            <info id="LocalC:\Users\Tsu\PhpstormProjects\PrintfulTask\manual_dep\phpunit-11.1.2.phar" version="11.1.2" />
+            <info id="LocalE:\Playground\PrintfulTask-Artūrs_Alsiņš\PrintfulTask\manual_dep\phpunit-11.1.2.phar" version="11.1.2" />
+          </versions>
+        </cache>
+      </tool>
+    </tools_cache>
+  </component>
+</project>
