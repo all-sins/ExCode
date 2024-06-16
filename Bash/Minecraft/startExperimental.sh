@@ -1,0 +1,1 @@
+java8 -server -Xms6G -Xmx8G -XX:SurvivorRatio=4 -XX:InitialSurvivorRatio=1 -XX:NewRatio=4 -XX:MaxTenuringThreshold=12 -XX:+DisableExplicitGC -Dfml.doNotBackup=true -Dfml.readTimeout=65500 -Dfml.loginTimeout=65500 -jar forge-1.12.2-14.23.5.2860.jar nogui
