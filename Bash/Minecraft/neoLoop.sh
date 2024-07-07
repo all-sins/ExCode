@@ -1,20 +1,14 @@
-#!/bin/bash
+!/bin/bash
+SCRIPT="start.sh"
+WEBHOOK_URL="https://discord.com/api/webhooks/1235569718325415996/U--rQ8VUYOlwDY3WJbj6ecnjWdhyXY-DuQcGJYpQMi0m9s8jkQ7udxVlfk-8NFEpX1s2"
+send_message() {
+    curl -H "Content-Type: application/json" -X POST -d "{\"content\": \"$1\"}" "$WEBHOOK_URL"
+}
 
-# Define the command to launch your script
-SCRIPT="neoStart.sh"
-
-# Define the duration to sleep (in seconds) before relaunching the script
-SLEEP_DURATION=5
-
-# Infinite loop
+send_message "[LOP] Server relaunch wrapped started!"
 while :
 do
-  # Launch the script
-  echo "Launcing server..."
-  ./"$SCRIPT"
-
-  # Sleep for the specified duration
-  echo "Server exited. Sleeping for $SLEEP_DURATION seconds before relaunching..."
-  sleep "$SLEEP_DURATION"
+  send_message "[LOP] Starting main wrapper..."
+  bash $SCRIPT
+  send_message "[LOP] Server exited! Restarting..."
 done
-
