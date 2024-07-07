@@ -1,6 +1,6 @@
 # TODO: Previous version. The link changes. Is there way to get the latest version?
 # dlUrl="https://dl.discordapp.net/apps/linux/0.0.56/discord-0.0.56.tar.gz"
-dlUrl="https://dl.discordapp.net/apps/linux/0.0.57/discord-0.0.57.tar.gz"
+dlUrl="https://discord.com/api/download/stable?platform=linux&format=tar.gz"
 appDir="/home/tsu/Software" # Hacky fix for structure of Discord archive.
 pakName="discord-update-archive.tar.gz"
 dlDir="/home/tsu/Downloads"
