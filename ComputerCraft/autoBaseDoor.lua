@@ -1,8 +1,8 @@
 throttle = 1
-rsSide = "right"
-whitelistNames = {"OG_Tsu"}
+rsSide = "bottom"
+whitelistNames = {"OG_Tsu", "Fir33y3", "oliver640", "Domartas", "StromHD", "ELDAM44", "HutMatter", "SnxpeMyBoy_"}
 sensor = peripheral.wrap("top")
-monitor = peripheral.wrap("back")
+monitor = peripheral.wrap("left")
 xRes, yRes = monitor.getSize()
 monitor.setTextScale(1)
 monitor.clear()
@@ -44,16 +44,22 @@ while true do
     
     for _, player in ipairs(players) do
         local name = player.name
-        writeln(name)
         detectedNames[#detectedNames + 1] = name
     end
     
+    stringBuilder = ""
+    for _, name in ipairs(detectedNames) do
+        stringBuilder = stringBuilder..name.." "
+    end
+    writeln(stringBuilder)
+    
     if anyContains(detectedNames, whitelistNames) then
+        print("TEAM_PLAYER_PRESENT")
         redstone.setAnalogOutput(rsSide, 15)
     else
+        print("IDLE_STATE")
         redstone.setAnalogOutput(rsSide, 0)
     end
     
     os.sleep(throttle)
 end
-
