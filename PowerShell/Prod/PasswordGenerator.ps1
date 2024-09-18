@@ -3,7 +3,7 @@
 # <CONFIG> #
 ############
 # Password properties.
-$passLong = 16
+$passLong = 32
 
 # Enable character sets.
 $enableSymbols = $true
