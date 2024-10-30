@@ -1,1 +1,1 @@
-cd $env:TEMP; mkdir ExCodeTMP; cd ExCodeTMP; git clone "https://github.com/all-sins/ExCode.git" .; .\PowerShell\Dev\publicipmon.ps1; cd ..; Remove-Item -Force -Recurse .\ExCodeTMP"
+Invoke-WebRequest -Uri "https://raw.githubusercontent.com/all-sins/ExCode/master/PowerShell/Dev/winfetch.ps1" -OutFile $env:TEMP/winfetch.ps1; powershell.exe -ExecutionPolicy Bypass -File "$env:TEMP/winfetch.ps1"; Remove-Item $env:TEMP/winfetch.ps1
