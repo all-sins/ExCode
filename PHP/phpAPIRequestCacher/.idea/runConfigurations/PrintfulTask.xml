@@ -1,7 +1,0 @@
-<component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="PrintfulTask" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
-    <CommandLine workingDirectory="$PROJECT_DIR$" />
-    <TestRunner class="testCatalogAPI" directory="$PROJECT_DIR$" file="$PROJECT_DIR$/tests/testCatalogAPI.php" method="testCacheExpiry" />
-    <method v="2" />
-  </configuration>
-</component>
