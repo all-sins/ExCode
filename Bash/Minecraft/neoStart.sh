@@ -2,7 +2,7 @@
 SCREEN_SESSION_NAME="ftb-managed-server"
 NEOSTART_SCRIPT="neoLoop.sh"
 START_SCRIPT="start.sh"
-WEBHOOK_URL="https://discord.com/api/webhooks/1235569718325415996/U--rQ8VUYOlwDY3WJbj6ecnjWdhyXY-DuQcGJYpQMi0m9s8jkQ7udxVlfk-8NFEpX1s2"
+WEBHOOK_URL=""
 MESSAGE="Placeholder..."
 RESTART_INTERVAL="1872 minutes"
 RESTART_INTERVAL_SLEEP_COMMAND_APPEASER="1872m" # Same value as above, but different format so that sleep command doesn't complain.
